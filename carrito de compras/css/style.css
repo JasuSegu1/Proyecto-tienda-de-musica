@@ -1,0 +1,366 @@
+/* font awesome cdn link  */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
+
+/* google fonts cdn link  */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+   --main-color:#0066cc;
+   --green:#7EA956;
+   --red:#ff1a1a;
+   --black:#333;
+   --light-color:#777;
+   --bg-color:#eee;
+   --white:#fff;
+   --border:.2rem solid var(--light-color);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+   box-sizing: border-box;
+   margin: 0; padding: 0;
+   text-decoration: none;
+   outline: none; border: none;
+   text-transform: capitalize;
+   transition: .2s all linear;
+   font-family: "Montserrat", sans-serif;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+   width:  1.2rem;
+}
+
+::-webkit-scrollbar-track{
+   background-color: var(--white);
+}
+
+::-webkit-scrollbar-thumb{
+   background: var(--black);
+   border-radius: 10px;
+   border: .2rem solid var(--white);
+}
+
+::-webkit-scrollbar-thumb:hover{
+   background: var(--light-color);
+}
+
+body{
+   background-color: var(--bg-color);
+}
+
+section{
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+.btn,
+.del-btn{
+   display: block;
+   width: 100%;
+   padding: 1rem 2rem;
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   color: var(--white);
+   font-size: 1.8rem;
+   cursor: pointer;
+   margin-top: 1rem;
+   text-align: center;
+}
+
+.btn:hover,
+.del-btn:hover{
+   background-color: var(--black);
+}
+
+.btn{
+   background-color: var(--main-color);
+}
+
+.del-btn{
+   background-color: var(--red);
+}
+
+.swal-button--confirm{
+   background: var(--main-color);
+}
+
+.swal-button--danger{
+   background: var(--red);
+}
+
+.swal-button--danger,
+.swal-button--confirm{
+   background: var(--black);
+}
+
+.empty{
+   padding: 1.5rem;
+   background-color: var(--white);
+   color: var(--light-color);
+   box-shadow: var(--box-shadow);
+   border: var(--border);
+   border-radius: .5rem;
+   font-size: 2rem;
+   text-align: center;
+}
+
+.products .heading{
+   width: 100%;
+   margin-bottom: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.products .heading h3{
+   font-size: 2.5rem;
+   color: var(--black);
+}
+
+.products .heading #open-cart{
+   cursor: pointer;
+}
+
+.products .heading #open-cart i{
+   margin-right: .2rem;
+   font-size: 2rem;
+   color: var(--light-color);
+}
+
+.products .heading #open-cart:hover i{
+   color: var(--black);
+}
+
+.products .heading #open-cart span{
+   user-select: none;
+   border-radius: .5rem;
+   background-color: var(--main-color);
+   padding: .2rem .5rem;
+   font-size: 1.5rem;
+   color: var(--white);
+}
+
+.products .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+   gap: 2rem;
+}
+
+.products .box-container .box{
+   background-color: var(--white);
+   border: var(--border);
+   box-shadow: var(--box-shadow);
+   padding: 2rem;
+   border-radius: .5rem;
+}
+
+.products .box-container .box img{
+   height: 35rem;
+   width: 100%;
+   object-fit: contain;
+}
+
+.products .box-container .box .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin: .5rem 0;
+}
+
+.products .box-container .box h3{
+   font-size: 2rem;
+   color: var(--black);
+   margin: 1rem 0;
+}
+
+.products .box-container .box .price{
+   color: var(--main-color);
+   font-size: 2rem;
+}
+
+.products .box-container .box .price span{
+   font-size: 1.5rem;
+   color: var(--light-color);
+}
+
+.products .box-container .box .title{
+   font-size: 1.5rem;
+   color: var(--light-color);
+   margin: .5rem 0;
+}
+
+.products .box-container .box .qty{
+   border: var(--border);
+   padding: .5rem 1rem;
+   background-color: var(--bg-color);
+   border-radius: .5rem;
+}
+
+.products .box-container .box select{
+   appearance: none;
+   border: var(--border);
+   padding: .5rem 1rem;
+   background-color: var(--bg-color);
+   border-radius: .5rem;
+   text-align: center;
+   cursor: pointer;
+}
+
+.cart{
+   position: fixed;
+   top: 0; right: -100%;
+   z-index: 1000;
+   width: 35rem;
+   height: 100vh;
+   padding: 2rem;
+   background: var(--white);
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+
+.cart.active{
+   right: 0;
+   box-shadow: 0 0 0 100vw rgba(0,0,0,.7);
+}
+
+.cart .heading{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: 2rem;
+}
+
+.cart .heading h3{
+   color: var(--black);
+   font-size: 2rem;
+}
+
+.cart .heading .fa-xmark{
+   font-size: 2rem;
+   color: var(--light-color);
+   cursor: pointer;
+}
+
+.cart .heading .fa-xmark:hover{
+   color: var(--black);
+}
+
+.cart .box-container{
+   display: grid;
+   gap: 1.5rem;
+}
+
+.cart .box-container .box{
+   border: var(--border);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   padding: 1.5rem;
+   position: relative;
+}
+
+.cart .box-container .box img{
+   height: 25rem;
+   width: 100%;
+   object-fit: contain;
+}
+
+.cart .box-container .box .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin: .5rem 0;
+   gap: 1rem;
+}
+
+.cart .box-container .box .name{
+   font-size: 2rem;
+   color: var(--black);
+}
+
+.cart .box-container .box .price{
+   font-size: 2rem;
+   color: var(--main-color);
+}
+
+.cart .box-container .box .price span{
+   font-size: 1.5rem;
+   color: var(--light-color);
+}
+
+.cart .box-container .box .title{
+   font-size: 1.5rem;
+   color: var(--light-color);
+}
+
+.cart .box-container .box .qty-input{
+   width: 6.5rem;
+   border: var(--border);
+   border-radius: .5rem;
+   font-size: 1.6rem;
+   color:var(--black);
+   background-color: var(--bg-color);
+   padding: .5rem 1rem;
+}
+
+.cart .box-container .box .update-btn{
+   appearance: none;
+   background: none;
+   color: var(--green);
+   cursor: pointer;
+   font-size: 2rem;
+   margin-left: .5rem;
+}
+
+.cart .box-container .box .update-btn:disabled{
+   color: var(--light-color);
+   pointer-events: none;
+}
+
+.cart .box-container .box .sub-total{
+   font-size: 1.5rem;
+   color: var(--main-color);
+}
+
+.cart .cart-total .total{
+   margin: 2rem 0;
+   font-size: 2rem;
+   color: var(--light-color);
+} 
+
+.cart .cart-total .total span{
+   color: var(--main-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
+}
